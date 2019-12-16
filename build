@@ -1,0 +1,16 @@
+#!/bin/sh
+
+BUILD_DIRECTORY_PATH=platforms/android/app/build/outputs/apk/release
+KEYSTORE_URL=easycollab-release-key.keystore
+KEYSTORE_PASS=easycollab
+KEYSTORE_ALIAS=easycollab
+ZIPALIGN_LOCATION=$ANDROID_SDK_ROOT/build-tools/28.0.3
+BUILD_NAME=EasyCollab
+
+rm $BUILD_DIRECTORY_PATH/*.apk
+
+ionic cordova build android --prod --release
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $KEYSTORE_URL -storepass $KEYSTORE_PASS $BUILD_DIRECTORY_PATH/app-release-unsigned.apk $KEYSTORE_ALIAS
+$ZIPALIGN_LOCATION/zipalign -v 4 $BUILD_DIRECTORY_PATH/app-release-unsigned.apk $BUILD_DIRECTORY_PATH/$BUILD_NAME.apk
+rm $BUILD_DIRECTORY_PATH/app-release-unsigned.apk

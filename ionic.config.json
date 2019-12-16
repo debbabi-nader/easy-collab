@@ -1,5 +1,7 @@
 {
   "name": "easycollab",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
