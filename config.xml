@@ -4,7 +4,7 @@
     <description>An Ionic mobile application for projects and teams collaboration management.</description>
     <author email="nader.debbabi.30@gmail.com" href="https://debbabi-nader.github.io/">Nader Debbabi</author>
     <author email="haythemmarouani@gmail.com" href="https://github.com/haythem007/">Haythem Marouani</author>
-    <author email="diallojaaarmr@gmail.com" href="">Jaafer Diallo</author>
+    <author email="diallojaaarmr@gmail.com" href="https://github.com/jaafardialloo/">Jaafer Diallo</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
