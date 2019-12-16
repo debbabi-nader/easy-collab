@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="io.isamm.easycollab" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>EasyCollab</name>
+    <description>An Ionic mobile application for projects and teams collaboration management.</description>
+    <author email="nader.debbabi.30@gmail.com" href="https://debbabi-nader.github.io/">Nader Debbabi</author>
+    <author email="haythemmarouani@gmail.com" href="https://github.com/haythem007/">Haythem Marouani</author>
+    <author email="diallojaaarmr@gmail.com" href="">Jaafer Diallo</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
