@@ -1,7 +1,7 @@
 {
-  "name": "easycollab",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
+    "name": "easycollab",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
 }
