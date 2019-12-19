@@ -9,14 +9,14 @@ import { SignInPage } from './sign-in.page';
 
 
 @NgModule({
+    declarations: [
+        SignInPage
+    ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
         IonicModule,
         SignInRoutingModule
-    ],
-    declarations: [
-        SignInPage
     ]
 })
 export class SignInModule {

@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
-import { SignUpRoutingModule } from './sign-up-routing.module';
+import { AppLayoutRoutingModule } from './app-layout-routing.module';
 
-import { SignUpPage } from './sign-up.page';
+import { AppLayoutPage } from './app-layout.page';
 
 
 @NgModule({
     declarations: [
-        SignUpPage
+        AppLayoutPage
     ],
     imports: [
         CommonModule,
         IonicModule,
-        SignUpRoutingModule
+        AppLayoutRoutingModule
     ]
 })
-export class SignUpModule {
+export class AppLayoutModule {
 
 }

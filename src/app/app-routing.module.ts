@@ -12,6 +12,10 @@ const APP_ROUTES: Routes = [
         loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)
     },
     {
+        path: 'app',
+        loadChildren: () => import('./pages/app-layout/app-layout.module').then(m => m.AppLayoutModule)
+    },
+    {
         path: '**',
         redirectTo: 'sign-in',
         pathMatch: 'full'
