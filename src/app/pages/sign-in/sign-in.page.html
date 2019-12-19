@@ -1,1 +1,33 @@
-<h1>sign-in page</h1>
+<ion-content>
+    <div class="sign-in-page-container">
+        <ion-card class="sign-in-card">
+
+            <div class="logo-container">
+                <img src="assets/imgs/easycollab-logo-gradient.png" alt="EasyCollab">
+            </div>
+            
+            <div class="sign-in-form-container">
+                <form [formGroup]="signInFormGroup">
+
+                    <div class="form-group">
+                        <ion-input type="email" id="email" formControlName="email" required placeholder="Email address"></ion-input>
+                        <p class="error-message" *ngIf="(signInFormGroup.get('email').touched || signInFormGroup.get('email').dirty) && signInFormGroup.get('email').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(signInFormGroup.get('email').touched || signInFormGroup.get('email').dirty) && signInFormGroup.get('email').hasError('customEmail')">* Invalid email address</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <ion-input type="password" id="password" formControlName="password" required placeholder="Password"></ion-input>
+                        <p class="error-message" *ngIf="(signInFormGroup.get('password').touched || signInFormGroup.get('password').dirty) && signInFormGroup.get('password').hasError('required')">* This field is required</p>
+                    </div>
+                
+                </form>
+            </div>
+            
+            <div class="sign-in-action-container">
+                <ion-button expand="block" shape="round" strong="true" class="btn-gradient" (click)="onSignIn()" [disabled]="signInFormGroup.invalid">Sign in</ion-button>
+                <p class="sign-up-link">New to EasyCollab? <a (click)="navigateToSignUpPage()">Create an account!</a></p>
+            </div>
+        
+        </ion-card>
+    </div>
+</ion-content>
