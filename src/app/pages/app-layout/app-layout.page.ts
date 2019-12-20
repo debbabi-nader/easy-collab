@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
     styleUrls: [ './app-layout.page.scss' ]
 })
 export class AppLayoutPage {
+
+    constructor(
+        private menuController: MenuController
+    ) {}
+
+    toggleMainMenu() {
+
+        this.menuController.toggle('main-menu');
+
+    }
 
 }

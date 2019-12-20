@@ -1,4 +1,51 @@
-<ion-content>
-    <h1>app layout</h1>
+<ion-menu menuId="main-menu" contentId="main" side="end" type="overlay" class="main-menu">
+    <ion-header mode="ios" class="main-menu-header">
+        <div class="main-menu-header-content-container">
+            <div class="avatar-container">
+                <ion-avatar>
+                    <img src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?size=800">
+                </ion-avatar>
+            </div>
+            <div class="user-information-container">
+                <p class="fullname">John Doe</p>
+                <p class="email">john@doe.io</p>
+            </div>
+        </div>
+    </ion-header>
+    <ion-content class="main-menu-content">
+        <ion-list class="main-menu-list">
+            <ion-item detail="false" class="main-menu-item">
+                <ion-icon name="home" slot="start"></ion-icon>
+                <ion-label>Home</ion-label>
+            </ion-item>
+            <ion-item detail="false" class="main-menu-item main-menu-active-item">
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-label>Profile</ion-label>
+            </ion-item>
+            <ion-item detail="false" class="main-menu-item">
+                <ion-icon name="chatbubbles" slot="start"></ion-icon>
+                <ion-label>Messages</ion-label>
+            </ion-item>
+            <ion-item detail="false" class="main-menu-item">
+                <ion-icon name="settings" slot="start"></ion-icon>
+                <ion-label>Settings</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-header mode="ios">
+    <ion-toolbar class="app-main-toolbar">
+        <div class="toolbar-logo-container">
+            <img src="assets/imgs/easycollab-toolbar-logo-gradient.png" alt="EasyCollab">
+        </div>
+        <ion-buttons slot="end">
+            <ion-button class="menu-open-btn" (click)="toggleMainMenu()">
+                <ion-icon slot="icon-only" name="menu" color="primary"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content id="main">
     <router-outlet></router-outlet>
 </ion-content>
