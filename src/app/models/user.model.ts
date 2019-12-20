@@ -7,10 +7,8 @@ export class User {
     email?: string;
     password?: string;
     profileType?: ProfileTypesEnum;
-    isActive?: boolean;
     firstName?: string;
     lastName?: string;
     profilePicture?: string | File;
-    createdAt?: string;
 
 }
