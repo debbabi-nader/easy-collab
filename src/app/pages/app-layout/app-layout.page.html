@@ -7,28 +7,16 @@
                 </ion-avatar>
             </div>
             <div class="user-information-container">
-                <p class="fullname">John Doe</p>
-                <p class="email">john@doe.io</p>
+                <p class="fullname">{{ currentUser.firstName + ' ' + currentUser.lastName }}</p>
+                <p class="email">{{ currentUser.email }}</p>
             </div>
         </div>
     </ion-header>
     <ion-content class="main-menu-content">
         <ion-list class="main-menu-list">
-            <ion-item detail="false" class="main-menu-item">
-                <ion-icon name="home" slot="start"></ion-icon>
-                <ion-label>Home</ion-label>
-            </ion-item>
-            <ion-item detail="false" class="main-menu-item main-menu-active-item">
-                <ion-icon name="person" slot="start"></ion-icon>
-                <ion-label>Profile</ion-label>
-            </ion-item>
-            <ion-item detail="false" class="main-menu-item">
-                <ion-icon name="chatbubbles" slot="start"></ion-icon>
-                <ion-label>Messages</ion-label>
-            </ion-item>
-            <ion-item detail="false" class="main-menu-item">
-                <ion-icon name="settings" slot="start"></ion-icon>
-                <ion-label>Settings</ion-label>
+            <ion-item *ngFor="let item of mainMenuListItems" [routerLink]="item.path" routerLinkActive="main-menu-active-item" detail="false" class="main-menu-item">
+                <ion-icon [name]="item.icon" slot="start"></ion-icon>
+            <ion-label>{{ item.label }}</ion-label>
             </ion-item>
         </ion-list>
     </ion-content>
