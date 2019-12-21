@@ -19,4 +19,10 @@ export class UsersService {
 
     }
 
+    addUser(user: User): Promise<void> {
+
+        return this.angularFirestore.doc<User>('/users/' + user.id).set({ ...user });
+
+    }
+
 }

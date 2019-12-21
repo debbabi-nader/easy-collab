@@ -1,1 +1,63 @@
-<h1>sign-up page</h1>
+<ion-content>
+    <div class="sign-up-page-container">
+        <ion-card class="sign-up-card">
+
+            <div class="logo-container">
+                <img src="assets/imgs/easycollab-logo-gradient.png" alt="EasyCollab">
+            </div>
+            
+            <div *ngIf="!profileType && !isSignedUp" class="profile-type-selection-container">
+                <p>You are planning to use <a>EasyCollab</a> as a</p>
+                <ion-button *ngFor="let profileType of profileTypes" expand="block" fill="outline" shape="round" strong="true" (click)="onProfileTypeSelected(profileType)">{{ profileType.replace('_', ' ') }}</ion-button>
+            </div>
+
+            <div *ngIf="profileType && !isSignedUp" class="sign-up-form-container">
+                <form [formGroup]="signUpFormGroup">
+
+                    <div class="form-group">
+                        <ion-input type="text" id="firstName" formControlName="firstName" required placeholder="First name"></ion-input>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('firstName').touched || signUpFormGroup.get('firstName').dirty) && signUpFormGroup.get('firstName').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('firstName').touched || signUpFormGroup.get('firstName').dirty) && signUpFormGroup.get('firstName').hasError('blank')">* Your first name must have at least one none whitespace character</p>
+                    </div>
+
+                    <div class="form-group">
+                        <ion-input type="text" id="lastName" formControlName="lastName" required placeholder="Last name"></ion-input>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('lastName').touched || signUpFormGroup.get('lastName').dirty) && signUpFormGroup.get('lastName').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('lastName').touched || signUpFormGroup.get('lastName').dirty) && signUpFormGroup.get('lastName').hasError('blank')">* Your last name must have at least one none whitespace character</p>
+                    </div>
+
+                    <div class="form-group">
+                        <ion-input type="email" id="email" formControlName="email" required placeholder="Email address"></ion-input>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('email').touched || signUpFormGroup.get('email').dirty) && signUpFormGroup.get('email').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('email').touched || signUpFormGroup.get('email').dirty) && signUpFormGroup.get('email').hasError('customEmail')">* Invalid email address</p>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('email').touched || signUpFormGroup.get('email').dirty) && signUpFormGroup.get('email').hasError('usedEmailAddress')">* Email address already in use</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <ion-input type="password" id="password" formControlName="password" required placeholder="Password"></ion-input>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('password').touched || signUpFormGroup.get('password').dirty) && signUpFormGroup.get('password').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('password').touched || signUpFormGroup.get('password').dirty) && signUpFormGroup.get('password').hasError('weakPassword')">* Password must have an 8 characters length at least, containing lower and upper case letters, digits and special characters</p>
+                    </div>
+
+                    <div class="form-group">
+                        <ion-input type="password" id="passwordConfirmation" formControlName="passwordConfirmation" required placeholder="Password confirmation"></ion-input>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('passwordConfirmation').touched || signUpFormGroup.get('passwordConfirmation').dirty) && signUpFormGroup.get('passwordConfirmation').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(signUpFormGroup.get('passwordConfirmation').touched || signUpFormGroup.get('passwordConfirmation').dirty) && signUpFormGroup.get('passwordConfirmation').hasError('notIdentical')">* Password is not confirmed</p>
+                    </div>
+                
+                </form>
+            </div>
+
+            <div *ngIf="isSignedUp" class="welcome-message-container">
+                <p>Your account has been successfully created!</p>
+            </div>
+            
+            <div class="sign-up-action-container">
+                <ion-button *ngIf="profileType && !isSignedUp" expand="block" shape="round" strong="true" class="btn-gradient" (click)="onSignUp()" [disabled]="signUpFormGroup.invalid">Sign up</ion-button>
+                <ion-button *ngIf="isSignedUp" expand="block" shape="round" strong="true" class="btn-gradient" (click)="navigateToCurrentUserHomePage()">Start collaborating</ion-button>
+                <p *ngIf="!isSignedUp" class="sign-in-link">Already a member? <a (click)="navigateToSignInPage()">Sign in to your account!</a></p>
+            </div>
+        
+        </ion-card>
+    </div>
+</ion-content>

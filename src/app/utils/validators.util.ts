@@ -12,6 +12,15 @@ export function customEmailValidator(): ValidatorFn {
 
 }
 
+export function passwordStrengthValidator(): ValidatorFn {
+
+    return (control: AbstractControl): {[key: string]: any} | null => {
+        const STRONG_PASSWORD_REGEX = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/g;
+        return STRONG_PASSWORD_REGEX.test(control.value) ? of(null) : of({'weakPassword': {value: control.value}});
+    };
+
+}
+
 export function blankValidator(): ValidatorFn {
 
     return (control: AbstractControl): {[key: string]: any} | null => {

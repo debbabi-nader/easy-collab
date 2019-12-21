@@ -50,7 +50,7 @@ export class SignInPage {
                 );
             }
         ).catch(
-            (error) => {
+            (error: any) => {
                 switch (error.code) {
                     case FirebaseAuthErrorCodesEnum.USER_NOT_FOUND:
                         console.log('USER_NOT_FOUND');

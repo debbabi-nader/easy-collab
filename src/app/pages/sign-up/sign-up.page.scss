@@ -1,0 +1,107 @@
+.sign-up-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    background: url(../../../assets/imgs/collaboration-cropped-gradient-background-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .sign-up-card {
+        width: 90%;
+        padding: 24px;
+        margin: 0;
+        border-radius: 24px;
+        box-shadow: none;
+        background: #FFFFFF;
+        box-sizing: border-box;
+
+        .logo-container {
+            width: 100%;
+            padding: 24px 0px 62px 0px;
+            box-sizing: border-box;
+            text-align: center;
+
+            img {
+                height: 82px;
+                width: auto;
+                display: inline-block;
+            }
+        }
+
+        .profile-type-selection-container {
+            width: 100%;
+
+            p {
+                font-size: 18px;
+                text-align: center;
+                margin: 0px 24px 48px 24px; 
+            }
+
+            ion-button {
+                margin: 0px 0px 14px 0px;
+                --box-shadow: none;
+                height: 44px;
+            }
+        }
+
+        .sign-up-form-container {
+            width: 100%;
+
+            .form-group {
+                width: 100%;
+                margin-bottom: 14px;
+
+                ion-input {
+                    --color: var(--ion-text-color);
+                    border: 2px solid var(--ion-color-primary);
+                    box-sizing: border-box;
+                    border-radius: 64px;
+                    --padding-start: 14px;
+                    --padding-end: 14px;
+                }
+    
+                .error-message {
+                    color: var(--ion-color-danger);
+                    margin: 14px 0px;
+                    padding: 0px 16px;
+                }
+            }
+        }
+
+        .welcome-message-container {
+            width: 100%;
+            
+            p {
+                font-size: 18px;
+                text-align: center;
+                margin: 0px 24px 24px 24px; 
+            }
+        }
+
+        .sign-up-action-container {
+            width: 100%;
+            padding: 48px 0px 0px 0px;
+            box-sizing: border-box;
+
+            ion-button {
+                margin: 0;
+                --box-shadow: none;
+                height: 44px;
+            }
+
+            .btn-gradient {
+                --background: linear-gradient(45deg, rgba(1,241,254,1) 0%, rgba(79,172,254,1) 55%);
+            }
+
+            .sign-in-link {
+                text-align: center;
+                margin: 24px 0px 12px 0px;
+            }
+        }
+    }
+}

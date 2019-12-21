@@ -15,6 +15,12 @@ export class AuthenticationService {
         private storage: Storage
     ) {}
 
+    signUpWithEmailAndPassword(email: string, password: string): Promise<firebase.auth.UserCredential> {
+
+        return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
+
+    }
+
     signInWithEmailAndPassword(email: string, password: string): Promise<firebase.auth.UserCredential> {
 
         return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
