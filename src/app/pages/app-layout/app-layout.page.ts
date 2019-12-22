@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { MenuController } from '@ionic/angular';
+import { MenuController, AlertController, NavController } from '@ionic/angular';
+
+import { AuthenticationService } from './../../services/authentication.service';
 
 import { User } from './../../models/user.model';
 import { MenuListItem } from './../../models/menu-list-item.model';
@@ -22,7 +24,10 @@ export class AppLayoutPage {
 
     constructor(
         private storage: Storage,
-        private menuController: MenuController
+        private menuController: MenuController,
+        private alertController: AlertController,
+        private navController: NavController,
+        private authenticationService: AuthenticationService
     ) {}
 
     ionViewWillEnter() {
@@ -55,6 +60,31 @@ export class AppLayoutPage {
     toggleMainMenu() {
 
         this.menuController.toggle('main-menu');
+
+    }
+
+    onSignOut() {
+
+        const SIGN_OUT_ALERT = this.alertController.create({
+            header: 'Sign out',
+            message: 'You\'re about to be signed out, do you wish to proceed?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel'
+                },
+                {
+                    text: 'Confirm',
+                    handler: () => {
+                        this.toggleMainMenu();
+                        this.authenticationService.signOut();
+                        this.navController.navigateRoot('/sign-in');
+                    }
+                }
+            ]
+        });
+
+        SIGN_OUT_ALERT.then((alertElement) => alertElement.present());
 
     }
 
