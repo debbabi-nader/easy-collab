@@ -41,7 +41,7 @@ export class SignInPage {
                 this.usersService.getUserByUid(result.user.uid).subscribe(
                     (user: User) => {
                         this.storage.set(CURRENT_USER_KEY, user);
-                        this.navController.navigateForward('/app/' + user.profileType.toLocaleLowerCase().replace('_', '-'));
+                        this.navController.navigateForward('/app');
                     },
                     (error: any) => {
                         console.log('Oups! something went wrong!');

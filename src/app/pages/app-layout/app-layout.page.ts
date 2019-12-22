@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { MenuController, AlertController, NavController } from '@ionic/angular';
 
@@ -27,6 +28,7 @@ export class AppLayoutPage {
         private menuController: MenuController,
         private alertController: AlertController,
         private navController: NavController,
+        private router: Router,
         private authenticationService: AuthenticationService
     ) {}
 
@@ -35,6 +37,7 @@ export class AppLayoutPage {
         this.storage.get(CURRENT_USER_KEY).then(
             (currentUser: User) => {
                 this.currentUser = currentUser;
+                this.router.navigateByUrl('/app/' + this.currentUser.profileType.toLowerCase().replace('_', '-'));
                 this.setMainMenuListItems(this.currentUser.profileType);
             }
         );

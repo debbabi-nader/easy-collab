@@ -44,6 +44,12 @@ export class SignUpPage {
         private usersService: UsersService
     ) {}
 
+    ionViewWillEnter() {
+
+        this.authenticationService.signOut();
+
+    }
+
     onProfileTypeSelected(profileType: ProfileTypesEnum) {
 
         this.profileType = profileType;

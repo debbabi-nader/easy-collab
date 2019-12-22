@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
@@ -32,6 +33,7 @@ import { FIREBASE_CONFIG } from './constants/firebase-config.constant';
         IonicStorageModule.forRoot(),
         AngularFireModule.initializeApp(FIREBASE_CONFIG),
         AngularFireAuthModule,
+        AngularFireAuthGuardModule,
         AngularFirestoreModule,
         AngularFireStorageModule,
         AppRoutingModule
