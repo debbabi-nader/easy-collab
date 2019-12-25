@@ -16,6 +16,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicRouteStrategy } from '@ionic/angular';
 import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
+import { ProjectsService } from './services/projects.service';
+import { TasksService } from './services/tasks.service';
 
 import { AppComponent } from './app.component';
 
@@ -43,7 +45,9 @@ import { FIREBASE_CONFIG } from './constants/firebase-config.constant';
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         AuthenticationService,
-        UsersService
+        UsersService,
+        ProjectsService,
+        TasksService
     ],
     bootstrap: [
         AppComponent

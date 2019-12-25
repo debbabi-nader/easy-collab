@@ -1,0 +1,26 @@
+<div *ngIf="publicProjectView">
+    <h1>public project view</h1>    
+</div>
+
+<div *ngIf="!publicProjectView">
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
+    
+            <ion-tab-button tab="dashboard">
+                <ion-icon name="stats"></ion-icon>
+                <ion-label>Dashboard</ion-label>
+            </ion-tab-button>
+    
+            <ion-tab-button tab="tasks">
+                <ion-icon name="list"></ion-icon>
+                <ion-label>Tasks</ion-label>
+            </ion-tab-button>
+    
+            <ion-tab-button tab="team">
+                <ion-icon name="people"></ion-icon>
+                <ion-label>Team</ion-label>
+            </ion-tab-button>
+    
+        </ion-tab-bar>
+    </ion-tabs>
+</div>

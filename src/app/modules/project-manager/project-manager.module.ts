@@ -5,11 +5,13 @@ import { IonicModule } from '@ionic/angular';
 import { ProjectManagerRoutingModule } from './project-manager-routing.module';
 
 import { ProjectManagerComponent } from './project-manager.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
     declarations: [
-        ProjectManagerComponent
+        ProjectManagerComponent,
+        DashboardComponent
     ],
     imports: [
         CommonModule,

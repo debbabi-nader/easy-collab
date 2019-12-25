@@ -1,0 +1,28 @@
+<div class="tasks-progress-state-buttons-container">
+    <ion-button 
+        size="small" 
+        shape="round" 
+        [ngClass]="selectedTaskProgressState === toDoTaskProgressState ? 'tasks-progress-state-button tasks-progress-state-active-button primary-gradient-button' : 'tasks-progress-state-button tasks-progress-state-inactive-button primary-outlined-button'"
+        (click)="onTasksProgressStateSelect(toDoTaskProgressState)"
+    >TO DO</ion-button>
+    <ion-button 
+        size="small" 
+        shape="round" 
+        [ngClass]="selectedTaskProgressState === doingTaskProgressState ? 'tasks-progress-state-button tasks-progress-state-active-button warning-gradient-button' : 'tasks-progress-state-button tasks-progress-state-inactive-button warning-outlined-button'"
+        (click)="onTasksProgressStateSelect(doingTaskProgressState)"
+    >DOING</ion-button>
+    <ion-button 
+        size="small" 
+        shape="round" 
+        [ngClass]="selectedTaskProgressState === doneTaskProgressState ? 'tasks-progress-state-button tasks-progress-state-active-button success-gradient-button' : 'tasks-progress-state-button tasks-progress-state-inactive-button success-outlined-button'"
+        (click)="onTasksProgressStateSelect(doneTaskProgressState)"
+    >DONE</ion-button>
+</div>
+
+<div class="tasks-container">
+    <ion-card *ngFor="let task of tasks$ | async" class="elevated-card task-card ion-activatable" (click)="openTaskDetailsModal(task.id)">
+        <div class="task-label">{{ task.label }}</div>
+        <div class="task-due-date">Due date: {{ getFormatedDueDate(task.dueDate) }}</div>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+</div>

@@ -14,7 +14,7 @@
     </ion-header>
     <ion-content class="main-menu-content">
         <ion-list class="main-menu-list">
-            <ion-item *ngFor="let item of mainMenuListItems" [routerLink]="item.path" routerLinkActive="main-menu-active-item" detail="false" class="main-menu-item">
+            <ion-item *ngFor="let item of mainMenuListItems" [routerLink]="item.path" routerLinkActive="main-menu-active-item" (click)="toggleMainMenu()" detail="false" class="main-menu-item">
                 <ion-icon [name]="item.icon" slot="start"></ion-icon>
                 <ion-label>{{ item.label }}</ion-label>
             </ion-item>

@@ -2,12 +2,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ClientComponent } from './client.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const CLIENT_ROUTES: Routes = [
     {
         path: '',
-        component: ClientComponent
+        component: ClientComponent,
+        children: [
+            {
+                path: 'dashboard',
+                component: DashboardComponent
+            },
+            {
+                path: 'projects',
+                loadChildren: () => import('../project/project.module').then(m => m.ProjectModule)
+            },
+            {
+                path: '**',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            }
+        ]
     }
 ];
 

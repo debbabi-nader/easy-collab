@@ -3,69 +3,54 @@ import { MenuListItem } from './../models/menu-list-item.model';
 
 export const PROJECT_MANAGER_MAIN_MENU_LIST_ITEMS: MenuListItem[] = [
     {
-        label: 'Home',
+        label: 'Dashboard',
         icon: 'home',
-        path: '/app'
+        path: '/app/project-manager/dashboard'
     },
     {
-        label: 'Profile',
-        icon: 'person',
-        path: '/app/project-manager/profile'
+        label: 'Projects',
+        icon: 'briefcase',
+        path: '/app/project-manager/projects'
     },
     {
-        label: 'Messages',
-        icon: 'chatbubbles',
-        path: '/app/project-manager/messages'
-    },
-    {
-        label: 'Settings',
-        icon: 'settings',
-        path: '/app/project-manager/settings'
+        label: 'Collaboration proposals',
+        icon: 'people',
+        path: '/app/project-manager/collaboration-proposals'
     }
 ];
 
 export const DEVELOPER_MAIN_MENU_LIST_ITEMS: MenuListItem[] = [
     {
-        label: 'Home',
+        label: 'Dashboard',
         icon: 'home',
-        path: '/app'
+        path: '/app/developer/dashboard'
     },
     {
-        label: 'Profile',
-        icon: 'person',
-        path: '/app/developer/profile'
+        label: 'Projects',
+        icon: 'briefcase',
+        path: '/app/developer/projects'
     },
     {
-        label: 'Messages',
-        icon: 'chatbubbles',
-        path: '/app/developer/messages'
-    },
-    {
-        label: 'Settings',
-        icon: 'settings',
-        path: '/app/developer/settings'
+        label: 'Collaboration proposals',
+        icon: 'people',
+        path: '/app/developer/collaboration-proposals'
     }
 ];
 
 export const CLIENT_MAIN_MENU_LIST_ITEMS: MenuListItem[] = [
     {
-        label: 'Home',
+        label: 'Dashboard',
         icon: 'home',
-        path: '/app'
+        path: '/app/client/dashboard'
     },
     {
-        label: 'Profile',
-        icon: 'person',
-        path: '/app/client/profile'
+        label: 'Projects',
+        icon: 'briefcase',
+        path: '/app/client/projects'
     },
     {
-        label: 'Messages',
-        icon: 'chatbubbles',
-        path: '/app/client/messages'
-    },
-    {
-        label: 'Settings',
-        icon: 'settings',
-        path: '/app/client/settings'
+        label: 'Collaboration proposals',
+        icon: 'people',
+        path: '/app/client/collaboration-proposals'
     }
 ];

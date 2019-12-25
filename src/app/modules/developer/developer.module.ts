@@ -5,11 +5,13 @@ import { IonicModule } from '@ionic/angular';
 import { DeveloperRoutingModule } from './developer-routing.module';
 
 import { DeveloperComponent } from './developer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
     declarations: [
-        DeveloperComponent
+        DeveloperComponent,
+        DashboardComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,37 @@
+.modal-header {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 24px;
+    box-sizing: border-box;
+    background: linear-gradient(45deg, rgba(1,241,254,1) 0%, rgba(79,172,254,1) 55%);
+    color: var(--ion-background-color);
+
+    .modal-close-button {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        height: 30px;
+        width: 30px;
+        margin: 0;
+        --padding-bottom: 0px;
+        --padding-top: 0px;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --color: var(--ion-background-color);
+        --box-shadow: none;
+
+        ion-icon {
+            font-size: 30px;
+        }
+    }
+
+    .modal-title {
+        font-size: 26px;
+        font-weight: bold;
+    }
+}
