@@ -15,7 +15,7 @@ export class ProjectsListComponent {
 
     navigateToProjectDetails() {
 
-        this.router.navigate([ 'project-details', 'IIPPFyt1kMMocjgOBIsJ' ], { relativeTo: this.activatedRoute });
+        this.router.navigate([ 'project-view', 'IIPPFyt1kMMocjgOBIsJ' ], { relativeTo: this.activatedRoute });
 
     }
 

@@ -19,6 +19,18 @@ export class ProjectsService {
 
     }
 
+    getProjects(): Observable<Project[]> {
+
+        return this.angularFirestore.collection<Project>('/projects', ref => ref.orderBy('label')).valueChanges();
+
+    }
+
+    getProjectsByOwnerId(id: string): Observable<Project[]> {
+
+        return this.angularFirestore.collection<Project>('/projects', ref => ref.where('ownerId', '==', id).orderBy('label')).valueChanges();
+
+    }
+
     createProject(project: Project) {
 
         project.id = this.angularFirestore.createId();
