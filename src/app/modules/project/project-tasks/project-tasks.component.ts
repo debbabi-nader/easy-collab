@@ -16,7 +16,7 @@ import { TaskProgressState } from './../../../models/task-progress-state.model';
 
 import { TaskProgressStatesEnum } from './../../../enumerations/task-progress-states.enum';
 
-import { STORAGE_DATE_TIME_FORMAT, DISPLAY_DATE_FORMAT } from './../../../constants/date-formats.constant';
+import { STORAGE_DATE_TIME_FORMAT, DISPLAY_DATE_FORMAT, DISPLAY_TIME_FORMAT } from './../../../constants/date-formats.constant';
 
 
 @Component({
@@ -79,7 +79,7 @@ export class ProjectTasksComponent implements OnInit {
 
     getFormatedDueDate(dueDate: string): string {
 
-        return moment(dueDate, STORAGE_DATE_TIME_FORMAT).format(DISPLAY_DATE_FORMAT);
+        return moment(dueDate, STORAGE_DATE_TIME_FORMAT).format(DISPLAY_DATE_FORMAT + ' - ' + DISPLAY_TIME_FORMAT);
 
     }
 

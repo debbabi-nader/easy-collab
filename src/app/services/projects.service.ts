@@ -21,17 +21,17 @@ export class ProjectsService {
 
     getProjects(): Observable<Project[]> {
 
-        return this.angularFirestore.collection<Project>('/projects', ref => ref.orderBy('label')).valueChanges();
+        return this.angularFirestore.collection<Project>('/projects').valueChanges();
 
     }
 
     getProjectsByOwnerId(id: string): Observable<Project[]> {
 
-        return this.angularFirestore.collection<Project>('/projects', ref => ref.where('ownerId', '==', id).orderBy('label')).valueChanges();
+        return this.angularFirestore.collection<Project>('/projects', ref => ref.where('ownerId', '==', id)).valueChanges();
 
     }
 
-    createProject(project: Project) {
+    addProject(project: Project) {
 
         project.id = this.angularFirestore.createId();
 

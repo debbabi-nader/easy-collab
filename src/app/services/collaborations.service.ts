@@ -25,4 +25,10 @@ export class CollaborationsService {
 
     }
 
+    addCollaboration(collaboration: Collaboration): Promise<void> {
+
+        return this.angularFirestore.doc<Collaboration>('/collaborations/' + collaboration.projectId + '_' + collaboration.collaboratorId).set({ ...collaboration });
+
+    }
+
 }

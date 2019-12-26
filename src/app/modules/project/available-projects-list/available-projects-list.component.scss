@@ -13,12 +13,6 @@ ion-card {
     box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
 }
 
-.primary-gradient-button {
-    --border-width: 0px;
-    --color: var(--ion-background-color);
-    --background: linear-gradient(45deg, rgba(1,241,254,1) 0%, rgba(79,172,254,1) 55%);
-}
-
 /* component specific styles */
 
 .projects-container {

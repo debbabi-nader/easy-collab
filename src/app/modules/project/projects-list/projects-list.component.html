@@ -1,2 +1,32 @@
-<h1>projects-list</h1>
-<button (click)="navigateToProjectDetails()">some project</button>
+<div *ngIf="isClient">
+    <div class="projects-container">
+        <ion-card *ngFor="let project of projects" class="elevated-card project-card ion-activatable" (click)="navigateToProjectView(project.id)">
+            <div class="project-label">{{ project.label }}</div>
+            <div class="project-abstract">{{ project.abstract }}</div>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button class="primary-gradient-button">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</div>
+
+<div *ngIf="!isClient">
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
+    
+            <ion-tab-button tab="collaboration-projects">
+                <ion-icon name="people"></ion-icon>
+                <ion-label>Collaboration projects</ion-label>
+            </ion-tab-button>
+    
+            <ion-tab-button tab="available-projects">
+                <ion-icon name="briefcase"></ion-icon>
+                <ion-label>Available projects</ion-label>
+            </ion-tab-button>
+
+        </ion-tab-bar>
+    </ion-tabs>
+</div>

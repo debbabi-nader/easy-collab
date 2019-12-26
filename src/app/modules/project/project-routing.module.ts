@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProjectComponent } from './project.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
+import { CollaborationProjectsListComponent } from './collaboration-projects-list/collaboration-projects-list.component';
+import { AvailableProjectsListComponent } from './available-projects-list/available-projects-list.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
@@ -16,7 +18,17 @@ const PROJECT_ROUTES: Routes = [
         children: [
             {
                 path: '',
-                component: ProjectsListComponent
+                component: ProjectsListComponent,
+                children: [
+                    {
+                        path: 'collaboration-projects',
+                        component: CollaborationProjectsListComponent
+                    },
+                    {
+                        path: 'available-projects',
+                        component: AvailableProjectsListComponent
+                    }
+                ]
             },
             {
                 path: 'project-view/:id',

@@ -6,6 +6,8 @@ import { ProjectRoutingModule } from './project-routing.module';
 
 import { ProjectComponent } from './project.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
+import { CollaborationProjectsListComponent } from './collaboration-projects-list/collaboration-projects-list.component';
+import { AvailableProjectsListComponent } from './available-projects-list/available-projects-list.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
@@ -17,6 +19,8 @@ import { TaskDetailsModalComponent } from './task-details-modal/task-details-mod
     declarations: [
         ProjectComponent,
         ProjectsListComponent,
+        CollaborationProjectsListComponent,
+        AvailableProjectsListComponent,
         ProjectViewComponent,
         ProjectDashboardComponent,
         ProjectTasksComponent,

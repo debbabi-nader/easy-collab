@@ -19,14 +19,13 @@ export class TasksService {
 
     }
 
-
     getTasksByProjectId(id: string): Observable<Task[]> {
 
         return this.angularFirestore.collection<Task>('/tasks', ref => ref.where('projectId', '==', id)).valueChanges();
 
     }
 
-    createTask(task: Task) {
+    addTask(task: Task) {
 
         task.id = this.angularFirestore.createId();
 
