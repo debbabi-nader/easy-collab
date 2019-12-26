@@ -26,17 +26,24 @@ export class TasksService {
 
     }
 
-    create_Newtask(task: Task) {
-        task.id = this.angularFirestore.createId();
-        return this.angularFirestore.doc<Task>('/tasks/' + task.id).set({ ...task });
-      }
+    createTask(task: Task) {
 
-      update_Task(tacheID, task) {
-        this.angularFirestore.doc('/tasks/' + tacheID).update({ ...task });
-      }
-    
-      delete_Task(tache_id) {
-        this.angularFirestore.doc('/tasks/' + tache_id).delete();
-      }  
+        task.id = this.angularFirestore.createId();
+
+        return this.angularFirestore.doc<Task>('/tasks/' + task.id).set({ ...task });
+
+    }
+
+    updateTask(id: string, task: Task) {
+
+        this.angularFirestore.doc<Task>('/tasks/' + id).update({ ...task });
+
+    }
+
+    deleteTask(id: string) {
+
+        this.angularFirestore.doc<Task>('/tasks/' + id).delete();
+
+    }
 
 }
