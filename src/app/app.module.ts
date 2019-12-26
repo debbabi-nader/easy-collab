@@ -18,6 +18,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
 import { ProjectsService } from './services/projects.service';
 import { TasksService } from './services/tasks.service';
+import { CollaborationsService } from './services/collaborations.service';
 
 import { AppComponent } from './app.component';
 
@@ -47,7 +48,8 @@ import { FIREBASE_CONFIG } from './constants/firebase-config.constant';
         AuthenticationService,
         UsersService,
         ProjectsService,
-        TasksService
+        TasksService,
+        CollaborationsService
     ],
     bootstrap: [
         AppComponent
