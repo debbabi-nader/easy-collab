@@ -1,11 +1,11 @@
 export const FIREBASE_CONFIG = {
 
-    apiKey: (window as any).__config.apiKey,
-    authDomain: (window as any).__config.authDomain,
-    databaseURL: (window as any).__config.databaseURL,
-    projectId: (window as any).__config.projectId,
-    storageBucket: (window as any).__config.storageBucket,
-    messagingSenderId: (window as any).__config.messagingSenderId,
-    appId: (window as any).__config.appId
+    apiKey: 'AIzaSyAocbpjifX56i2xQRUyJpMEVVdmh9gN01o',
+    authDomain: 'easycollab-e727e.firebaseapp.com',
+    databaseURL: 'https://easycollab-e727e.firebaseio.com',
+    projectId: 'easycollab-e727e',
+    storageBucket: 'easycollab-e727e.appspot.com',
+    messagingSenderId: '665756713386',
+    appId: '1:665756713386:web:8b20f71ef966f794c32bd3'
 
 };
