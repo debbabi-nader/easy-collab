@@ -25,8 +25,17 @@
             <ion-tab-button tab="available-projects">
                 <ion-icon name="briefcase"></ion-icon>
                 <ion-label>Available projects</ion-label>
+
             </ion-tab-button>
 
         </ion-tab-bar>
+       
     </ion-tabs>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+        <ion-fab-button color="danger" (click)="openaddProjectModal()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    
 </div>

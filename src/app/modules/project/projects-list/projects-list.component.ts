@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
 
 import { ProjectsService } from './../../../services/projects.service';
 
@@ -10,7 +11,7 @@ import { Project } from './../../../models/project.model';
 import { ProfileTypesEnum } from 'src/app/enumerations/profile-types.enum';
 
 import { CURRENT_USER_KEY } from './../../../constants/storage.constant';
-
+import { AddProjectModalComponent } from './../add-project-modal/add-project-modal.component';
 
 @Component({
     templateUrl: './projects-list.component.html',
@@ -26,7 +27,9 @@ export class ProjectsListComponent implements OnInit {
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private storage: Storage,
-        private projectsService: ProjectsService
+        private projectsService: ProjectsService,
+        private modalController: ModalController,
+      
     ) {}
 
     ngOnInit() {
@@ -54,6 +57,18 @@ export class ProjectsListComponent implements OnInit {
     navigateToProjectView(projectId: string) {
 
         this.router.navigate([ 'project-view', projectId ], { relativeTo: this.activatedRoute });
+
+    }
+
+
+    openaddProjectModal(projectId: string) {
+
+        const ADD_TASK_MODAL = this.modalController.create({
+            component: AddProjectModalComponent,
+            
+        });
+
+        ADD_TASK_MODAL.then((modalElement) => modalElement.present());
 
     }
 

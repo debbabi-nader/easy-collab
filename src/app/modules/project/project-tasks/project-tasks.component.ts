@@ -1,3 +1,4 @@
+import { AddTaskModalComponent } from './../add-task-modal/add-task-modal.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
@@ -93,6 +94,20 @@ export class ProjectTasksComponent implements OnInit {
         });
 
         TASK_DETAILS_MODAL.then((modalElement) => modalElement.present());
+
+    }
+
+    openaddTaskModal(taskId: string) {
+
+        const ADD_TASK_MODAL = this.modalController.create({
+            component: AddTaskModalComponent,
+            componentProps: {
+                projectId: this.projectId
+            }
+           
+        });
+
+        ADD_TASK_MODAL.then((modalElement) => modalElement.present());
 
     }
 

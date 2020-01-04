@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-
+import { FormsModule } from '@angular/forms';
 import { ProjectRoutingModule } from './project-routing.module';
 
 import { ProjectComponent } from './project.component';
@@ -13,7 +13,8 @@ import { ProjectDashboardComponent } from './project-dashboard/project-dashboard
 import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
 import { ProjectTeamComponent } from './project-team/project-team.component';
 import { TaskDetailsModalComponent } from './task-details-modal/task-details-modal.component';
-
+import { AddTaskModalComponent } from './add-task-modal/add-task-modal.component';
+import { AddProjectModalComponent } from './add-project-modal/add-project-modal.component';
 
 @NgModule({
     declarations: [
@@ -25,15 +26,20 @@ import { TaskDetailsModalComponent } from './task-details-modal/task-details-mod
         ProjectDashboardComponent,
         ProjectTasksComponent,
         ProjectTeamComponent,
-        TaskDetailsModalComponent
+        TaskDetailsModalComponent,
+        AddTaskModalComponent,
+        AddProjectModalComponent
     ],
     entryComponents: [
-        TaskDetailsModalComponent
+        TaskDetailsModalComponent,
+        AddTaskModalComponent,
+        AddProjectModalComponent
     ],
     imports: [
         CommonModule,
         IonicModule,
-        ProjectRoutingModule
+        ProjectRoutingModule,
+        FormsModule
     ]
 })
 export class ProjectModule {
