@@ -4,13 +4,43 @@
   </ion-button>
   <div class="modal-title"> Ajouter un Projet </div>
 
+  <div class="ion-padding" style="margin-bottom: -380px">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-icon name="create" slot="start" ></ion-icon>
+            <ion-input type="text" placeholder="label" [(ngModel)]="label"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-icon name="at" slot="start" ></ion-icon>
+            <ion-input position="floating" type="text"  placeholder="description" [(ngModel)]="description"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  
+     
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input type="date"  placeholder="creationDate" [(ngModel)]="creationDate"></ion-input>
+            <ion-icon name="create" slot="start" ></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
      
       <ion-row>
         <ion-col text-center>
-          <ion-button expand="block" shape="round" fill="outline" class="button" >
-            &nbsp;Creer un Projet
+          <ion-button expand="block" shape="round" fill="outline" class="button" (click)="Creerproject()">
+            &nbsp;Creer tache
           </ion-button>
         </ion-col>
       </ion-row>
   </div>
-  
+  </div>
