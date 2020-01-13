@@ -27,6 +27,8 @@ import { STORAGE_DATE_TIME_FORMAT, DISPLAY_DATE_FORMAT, DISPLAY_TIME_FORMAT } fr
 export class ProjectTasksComponent implements OnInit {
 
     projectId: string;
+   
+  
 
     toDoTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.TO_DO;
     doingTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.DOING;
@@ -111,4 +113,7 @@ export class ProjectTasksComponent implements OnInit {
 
     }
 
+   
+
+     
 }

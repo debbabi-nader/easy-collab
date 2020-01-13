@@ -28,12 +28,14 @@ import { AddProjectModalComponent } from './add-project-modal/add-project-modal.
         ProjectTeamComponent,
         TaskDetailsModalComponent,
         AddTaskModalComponent,
-        AddProjectModalComponent
+        AddProjectModalComponent,
+        ProjectDashboardComponent
     ],
     entryComponents: [
         TaskDetailsModalComponent,
         AddTaskModalComponent,
-        AddProjectModalComponent
+        AddProjectModalComponent,
+        ProjectDashboardComponent
     ],
     imports: [
         CommonModule,

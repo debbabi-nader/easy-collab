@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjectDashboardComponent implements OnInit {
 
     constructor(
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        
     ) {}
 
     ngOnInit() {
@@ -17,5 +18,9 @@ export class ProjectDashboardComponent implements OnInit {
         const PROJECT_ID = this.activatedRoute.snapshot.parent.paramMap.get('id');
 
     }
+
+
+   
+
 
 }

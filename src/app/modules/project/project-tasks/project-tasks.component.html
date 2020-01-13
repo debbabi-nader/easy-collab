@@ -23,8 +23,9 @@
     <ion-card *ngFor="let task of tasks$ | async" class="elevated-card task-card ion-activatable" (click)="openTaskDetailsModal(task.id)">
         <div class="task-label">{{ task.label }}</div>
         <div class="task-due-date">Due date: {{ getFormatedDueDate(task.dueDate) }}</div>
-        <ion-ripple-effect></ion-ripple-effect>
+        <ion-ripple-effect></ion-ripple-effect>   
     </ion-card>
+  
 </div>
 
 <ion-fab slot="fixed"  vertical="bottom" horizontal="end" #fab>

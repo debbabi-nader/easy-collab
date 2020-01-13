@@ -44,7 +44,7 @@ export class AddProjectModalComponent implements OnInit {
         project["description"] = this.description;
         project["ownerId"] = this.currentUser.id;
         project["creationDate"] = moment().format(STORAGE_DATE_TIME_FORMAT);
-        project["abstract"] = null;
+        project["abstract"] = this.abstract;
         this.serviceprojet.addProject(project).then(
           () => {
             this.closeModal();

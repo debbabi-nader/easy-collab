@@ -31,6 +31,10 @@ export class ProjectsService {
 
     }
 
+    read_Projets() {
+        return this.angularFirestore.collection('projets').snapshotChanges();
+      }
+
     addProject(project: Project) {
 
         project.id = this.angularFirestore.createId();

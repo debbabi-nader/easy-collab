@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ModalController } from "@ionic/angular";
 import { ProjectsService } from './../../../services/projects.service';
+import { AddProjectModalComponent } from './../add-project-modal/add-project-modal.component';
 
 import { Project } from './../../../models/project.model';
 
@@ -16,6 +17,7 @@ export class AvailableProjectsListComponent implements OnInit {
 
     constructor(
         private router: Router,
+        public modalController: ModalController,
         private projectsService: ProjectsService
     ) {}
 
@@ -41,4 +43,18 @@ export class AvailableProjectsListComponent implements OnInit {
 
     }
 
+    async createProject() {
+        console.log("button clicked!")
+        const modal = await this.modalController.create({
+          component: AddProjectModalComponent,
+          componentProps: {}
+        });
+        return await modal.present();
+      }
+
+    removeProject(projectId) {
+        this.projectsService.deleteProject(projectId);
+      }
+
+     
 }

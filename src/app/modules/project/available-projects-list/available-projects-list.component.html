@@ -1,7 +1,19 @@
-<div class="projects-container">
-    <ion-card *ngFor="let project of projects" class="elevated-card project-card ion-activatable" (click)="navigateToProjectView(project.id)">
-        <div class="project-label">{{ project.label }}</div>
-        <div class="project-abstract">{{ project.abstract }}</div>
-        <ion-ripple-effect></ion-ripple-effect>
-    </ion-card>
-</div>
+
+    <div class="projects-container">
+      <ion-card *ngFor="let project of projects" class="elevated-card project-card ion-activatable" (click)="navigateToProjectView(project.id)" >
+        <ion-card-header>
+          <ion-card-title>{{ project.label }}</ion-card-title>
+          <ion-card-subtitle>{{ project.abstract }}</ion-card-subtitle>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <ion-button  shape="round" color="secondary" size="small" >
+            <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+          </ion-button>
+          <ion-button  shape="round" color="danger" size="small" (click)="removeProject(project.id)">
+            <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
