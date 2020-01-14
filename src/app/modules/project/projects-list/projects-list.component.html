@@ -7,7 +7,7 @@
         </ion-card>
     </div>
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button class="primary-gradient-button">
+        <ion-fab-button class="primary-gradient-button" (click)="openAddProjectModal()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
@@ -29,13 +29,5 @@
             </ion-tab-button>
 
         </ion-tab-bar>
-       
     </ion-tabs>
-
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-        <ion-fab-button size="small"  class="button" (click)="openaddProjectModal()">
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-    
 </div>
