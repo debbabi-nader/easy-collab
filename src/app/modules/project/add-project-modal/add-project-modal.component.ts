@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
+import * as moment from 'moment';
+
 import { ProjectsService } from './../../../services/projects.service';
 
 import { blankValidator } from '../../../utils/validators.util';
@@ -12,8 +14,6 @@ import { Project } from './../../../models/project.model';
 
 import { CURRENT_USER_KEY } from './../../../constants/storage.constant';
 import { STORAGE_DATE_TIME_FORMAT } from '../../../constants/date-formats.constant';
-
-import * as moment from 'moment';
 
 
 @Component({

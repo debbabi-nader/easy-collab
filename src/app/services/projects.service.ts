@@ -31,7 +31,7 @@ export class ProjectsService {
 
     }
 
-    addProject(project: Project) {
+    addProject(project: Project): Promise<void> {
 
         project.id = this.angularFirestore.createId();
 
@@ -39,15 +39,15 @@ export class ProjectsService {
 
     }
 
-    updateProject(id: string, project: Project) {
+    updateProject(id: string, project: Project): Promise<void> {
 
-        this.angularFirestore.doc<Project>('/projects/' + id).update({ ...project });
+        return this.angularFirestore.doc<Project>('/projects/' + id).update({ ...project });
 
     }
 
-    deleteProject(id: string) {
+    deleteProject(id: string): Promise<void> {
 
-        this.angularFirestore.doc<Project>('/projects/' + id).delete();
+        return this.angularFirestore.doc<Project>('/projects/' + id).delete();
 
     }
 

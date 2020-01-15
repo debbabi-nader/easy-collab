@@ -1,46 +1,36 @@
-<div class="modal-header">
-  <ion-button class="modal-close-button" (click)="closeModal()">
-      <ion-icon slot="icon-only" name="close"></ion-icon>
-  </ion-button>
-  <div class="modal-title"> Ajouter une tache</div>
-
-  <div class="ion-padding" style="margin-bottom: -380px">
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-icon name="create" slot="start" ></ion-icon>
-            <ion-input type="text" placeholder="label" [(ngModel)]="label"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-  
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-icon name="at" slot="start" ></ion-icon>
-            <ion-input position="floating" type="text"  placeholder="Description" [(ngModel)]="description"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-  
-     
-  
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-input type="date"  placeholder="dueDate" [(ngModel)]="dueDate"></ion-input>
-            <ion-icon name="create" slot="start" ></ion-icon>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-     
-      <ion-row>
-        <ion-col text-center>
-          <ion-button expand="block" shape="round" fill="outline" class="button" (click)="Creertache()">
-            &nbsp;Creer tache
-          </ion-button>
-        </ion-col>
-      </ion-row>
-  </div>
-  </div>
+<div class="modal">
+    <div class="modal-header">
+        <ion-button class="modal-close-button" (click)="closeModal()">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <div class="modal-title">Add a new task</div>
+    </div>
+    <div class="modal-body">
+        <ion-card class="modal-card">
+            <div class="modal-card-content">
+                <form [formGroup]="addTaskFormGroup">
+                    <div class="form-group">
+                        <ion-input type="text" id="label" formControlName="label" required placeholder="Task label"></ion-input>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('label').touched || addTaskFormGroup.get('label').dirty) && addTaskFormGroup.get('label').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('label').touched || addTaskFormGroup.get('label').dirty) && addTaskFormGroup.get('label').hasError('blank')">* Task label must have at least one none whitespace character</p>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('label').touched || addTaskFormGroup.get('label').dirty) && addTaskFormGroup.get('label').hasError('maxlength')">* Please do not exceed 120 characters</p>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('label').touched || addTaskFormGroup.get('label').dirty) && addTaskFormGroup.get('label').hasError('notUnique')">* A task with the same label already exists</p>
+                    </div>
+                    <div class="form-group">
+                        <ion-textarea type="text" rows="6" id="description" formControlName="description" required placeholder="A brief description about the task"></ion-textarea>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('description').touched || addTaskFormGroup.get('description').dirty) && addTaskFormGroup.get('description').hasError('required')">* This field is required</p>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('description').touched || addTaskFormGroup.get('description').dirty) && addTaskFormGroup.get('description').hasError('blank')">* Description must have at least one none whitespace character</p>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('description').touched || addTaskFormGroup.get('description').dirty) && addTaskFormGroup.get('description').hasError('maxlength')">* Please do not exceed 300 characters</p>
+                    </div>
+                    <div class="form-group">
+                        <ion-datetime id="dueDate" formControlName="dueDate" required placeholder="Due date" displayFormat="D MMM, YYYY - HH:mm" [min]="minDueDate"></ion-datetime>
+                        <p class="error-message" *ngIf="(addTaskFormGroup.get('dueDate').touched || addTaskFormGroup.get('dueDate').dirty) && addTaskFormGroup.get('dueDate').hasError('required')">* This field is required</p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-card-actions">
+                <ion-button expand="block" shape="round" strong="true" class="primary-gradient-button" (click)="onAddTask()" [disabled]="addTaskFormGroup.invalid">Create new task</ion-button>
+            </div>
+        </ion-card>
+    </div>
+</div>
