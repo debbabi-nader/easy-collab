@@ -13,9 +13,9 @@ export class UsersService {
         private angularFirestore: AngularFirestore
     ) {}
 
-    getUserByUid(uid: string): Observable<User> {
+    getUserById(id: string): Observable<User> {
 
-        return this.angularFirestore.doc<User>('/users/' + uid).valueChanges();
+        return this.angularFirestore.doc<User>('/users/' + id).valueChanges();
 
     }
 

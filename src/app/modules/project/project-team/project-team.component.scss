@@ -1,0 +1,130 @@
+/* to move to global style */
+
+ion-button {
+    --box-shadow: none;
+}
+
+.primary-outlined-button {
+    --background: var(--ion-background-color);
+    --border-width: 1px;
+    --border-style: solid;
+}
+
+.primary-outlined-button {
+    --border-color: var(--ion-color-primary);
+    --color: var(--ion-color-primary);
+}
+
+.primary-gradient-button {
+    --border-width: 0px;
+    --color: var(--ion-background-color);
+}
+
+.primary-gradient-button {
+    --background: linear-gradient(45deg, rgba(1,241,254,1) 0%, rgba(79,172,254,1) 55%);
+}
+
+ion-card {
+    padding: 24px;
+    margin: 0;
+    border-radius: 24px;
+    box-shadow: none;
+    background: var(--ion-background-color);
+    box-sizing: border-box;
+}
+
+.elevated-card {
+    box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
+}
+
+.outlined-card {
+    border: 1px solid var(--ion-color-light);
+}
+
+/* component specific styles */
+
+.collaborators-profile-type-buttons-container {
+    width: 100%;
+    padding: 48px 24px 24px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .collaborators-profile-type-button {
+        display: block;
+        margin: 0px;
+        transition: 0.1s ease;
+    }
+
+    .collaborators-profile-type-button+.collaborators-profile-type-button {
+        margin-left: 12px;
+    }
+
+    .collaborators-profile-type-inactive-button {
+        flex: 1;
+    }
+
+    .collaborators-profile-type-active-button {
+        flex: 2;
+    }
+}
+
+.collaborators-container {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+
+    .collaborator-card {
+
+        .collaborator-card-content-container {
+            width: 100%;
+            height: 48px;
+            display: flex;
+            flex-direction: row;
+            align-content: flex-start;
+            justify-content: stretch;
+            box-sizing: border-box;
+
+            .collaborator-avatar-container {
+                width: 48px;
+                min-width: 48px;
+                height: 48px;
+                margin-right: 24px;
+    
+                ion-avatar {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .collaborator-information-container {
+                min-width: 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                .collaborator-fullname,
+                .collaborator-email {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .collaborator-fullname {
+                    font-size: 16px;
+                    color: var(--ion-text-color);
+                }
+            }
+        }
+    }
+
+    .collaborator-card+.collaborator-card {
+        margin-top: 24px;
+    }
+}

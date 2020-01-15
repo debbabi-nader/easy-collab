@@ -38,7 +38,7 @@ export class SignInPage {
 
         this.authenticationService.signInWithEmailAndPassword(this.signInFormGroup.get('email').value, this.signInFormGroup.get('password').value).then(
             (result: firebase.auth.UserCredential) => {
-                this.usersService.getUserByUid(result.user.uid).subscribe(
+                this.usersService.getUserById(result.user.uid).subscribe(
                     (user: User) => {
                         this.storage.set(CURRENT_USER_KEY, user);
                         this.navController.navigateForward('/app');

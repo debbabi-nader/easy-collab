@@ -1,1 +1,31 @@
-<h1>project team</h1>
+<div class="collaborators-profile-type-buttons-container">
+    <ion-button 
+        size="small" 
+        shape="round" 
+        [ngClass]="selectedCollaboratorsProfileType === projectManagerProfileType ? 'collaborators-profile-type-button collaborators-profile-type-active-button primary-gradient-button' : 'collaborators-profile-type-button collaborators-profile-type-inactive-button primary-outlined-button'"
+        (click)="onCollaboratorsProfileTypeSelect(projectManagerProfileType)"
+    >MANAGERS</ion-button>
+    <ion-button 
+        size="small" 
+        shape="round" 
+        [ngClass]="selectedCollaboratorsProfileType === developerProfileType ? 'collaborators-profile-type-button collaborators-profile-type-active-button primary-gradient-button' : 'collaborators-profile-type-button collaborators-profile-type-inactive-button primary-outlined-button'"
+        (click)="onCollaboratorsProfileTypeSelect(developerProfileType)"
+    >DEVELOPERS</ion-button>
+</div>
+
+<div class="collaborators-container">
+    <ion-card *ngFor="let collaborator of collaborators" class="elevated-card collaborator-card ion-activatable">
+        <div class="collaborator-card-content-container">
+            <div class="collaborator-avatar-container">
+                <ion-avatar>
+                    <img src="assets/imgs/profile-picture.jpg">
+                </ion-avatar>
+            </div>
+            <div class="collaborator-information-container">
+                <div class="collaborator-fullname">{{ collaborator.firstName + ' ' + collaborator.lastName }}</div>
+                <div class="collaborator-email">{{ collaborator.email }}</div>
+            </div>
+        </div>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+</div>
