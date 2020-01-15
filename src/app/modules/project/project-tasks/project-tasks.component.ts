@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
 
 import { Observable } from 'rxjs';
@@ -12,11 +13,14 @@ import { TaskDetailsModalComponent } from './../task-details-modal/task-details-
 
 import { TasksService } from './../../../services/tasks.service';
 
+import { User } from './../../../models/user.model';
 import { Task } from './../../../models/task.model';
 import { TaskProgressState } from './../../../models/task-progress-state.model';
 
+import { ProfileTypesEnum } from 'src/app/enumerations/profile-types.enum';
 import { TaskProgressStatesEnum } from './../../../enumerations/task-progress-states.enum';
 
+import { CURRENT_USER_KEY } from './../../../constants/storage.constant';
 import { STORAGE_DATE_TIME_FORMAT, DISPLAY_DATE_FORMAT, DISPLAY_TIME_FORMAT } from './../../../constants/date-formats.constant';
 
 
@@ -28,6 +32,8 @@ export class ProjectTasksComponent implements OnInit {
 
     projectId: string;
 
+    isProjectManager = false;
+
     toDoTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.TO_DO;
     doingTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.DOING;
     doneTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.DONE;
@@ -37,6 +43,7 @@ export class ProjectTasksComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
+        private storage: Storage,
         private modalController: ModalController,
         private tasksService: TasksService
     ) {}
@@ -44,6 +51,9 @@ export class ProjectTasksComponent implements OnInit {
     ngOnInit() {
 
         this.projectId = this.activatedRoute.snapshot.parent.paramMap.get('id');
+        this.storage.get(CURRENT_USER_KEY).then(
+            (currentUser: User) => this.isProjectManager = currentUser.profileType === ProfileTypesEnum.PROJECT_MANAGER
+        );
         this.loadTasks();
 
     }
