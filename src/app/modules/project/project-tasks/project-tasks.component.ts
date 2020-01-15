@@ -1,4 +1,3 @@
-import { AddTaskModalComponent } from './../add-task-modal/add-task-modal.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
@@ -8,6 +7,7 @@ import { map } from 'rxjs/operators';
 
 import * as moment from 'moment';
 
+import { AddTaskModalComponent } from './../add-task-modal/add-task-modal.component';
 import { TaskDetailsModalComponent } from './../task-details-modal/task-details-modal.component';
 
 import { TasksService } from './../../../services/tasks.service';
@@ -27,8 +27,6 @@ import { STORAGE_DATE_TIME_FORMAT, DISPLAY_DATE_FORMAT, DISPLAY_TIME_FORMAT } fr
 export class ProjectTasksComponent implements OnInit {
 
     projectId: string;
-   
-  
 
     toDoTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.TO_DO;
     doingTaskProgressState: TaskProgressStatesEnum = TaskProgressStatesEnum.DOING;
@@ -86,6 +84,19 @@ export class ProjectTasksComponent implements OnInit {
 
     }
 
+    openAddTaskModal() {
+
+        const ADD_TASK_MODAL = this.modalController.create({
+            component: AddTaskModalComponent,
+            componentProps: {
+                projectId: this.projectId
+            }
+        });
+
+        ADD_TASK_MODAL.then((modalElement) => modalElement.present());
+
+    }
+
     openTaskDetailsModal(taskId: string) {
 
         const TASK_DETAILS_MODAL = this.modalController.create({
@@ -99,21 +110,4 @@ export class ProjectTasksComponent implements OnInit {
 
     }
 
-    openaddTaskModal(taskId: string) {
-
-        const ADD_TASK_MODAL = this.modalController.create({
-            component: AddTaskModalComponent,
-            componentProps: {
-                projectId: this.projectId
-            }
-           
-        });
-
-        ADD_TASK_MODAL.then((modalElement) => modalElement.present());
-
-    }
-
-   
-
-     
 }

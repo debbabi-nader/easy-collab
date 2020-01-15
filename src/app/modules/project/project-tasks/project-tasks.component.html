@@ -25,11 +25,10 @@
         <div class="task-due-date">Due date: {{ getFormatedDueDate(task.dueDate) }}</div>
         <ion-ripple-effect></ion-ripple-effect>   
     </ion-card>
-  
 </div>
 
-<ion-fab slot="fixed"  vertical="bottom" horizontal="end" #fab>
-    <ion-fab-button  size="small"  class="button" (click)="openaddTaskModal()">
-      <ion-icon name="add"></ion-icon>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="primary-gradient-button" (click)="openAddTaskModal()">
+        <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+</ion-fab>
