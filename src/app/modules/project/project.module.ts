@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+
 import { ProjectRoutingModule } from './project-routing.module';
 
 import { ProjectComponent } from './project.component';
@@ -39,9 +41,10 @@ import { AddProjectModalComponent } from './add-project-modal/add-project-modal.
     ],
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         IonicModule,
-        ProjectRoutingModule,
-        FormsModule
+        ProjectRoutingModule
     ]
 })
 export class ProjectModule {
