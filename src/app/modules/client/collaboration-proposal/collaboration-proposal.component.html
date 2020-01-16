@@ -1,0 +1,8 @@
+<div class="projects-container">
+    <ion-card *ngFor="let collaborationproposal  of collaborationproposals" class="elevated-card project-card ion-activatable" (click)="navigateToProjectView(project.id)">
+        <div class="project-label">{{ collaborationproposal.label }}</div>
+        <div class="project-abstract">{{ collaborationproposal.abstract }}</div>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+</div>
+

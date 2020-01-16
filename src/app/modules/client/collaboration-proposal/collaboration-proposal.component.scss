@@ -1,0 +1,41 @@
+/* to move to global style */
+
+ion-card {
+    padding: 24px;
+    margin: 0;
+    border-radius: 24px;
+    box-shadow: none;
+    background: var(--ion-background-color);
+    box-sizing: border-box;
+}
+
+.elevated-card {
+    box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
+}
+
+/* component specific styles */
+
+.projects-container {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+
+    .project-card {
+        
+        .project-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--ion-text-color);
+        }
+
+        .project-abstract {
+            margin-top: 8px
+        }
+    }
+
+    .project-card+.project-card {
+        margin-top: 24px;
+    }
+}
+
