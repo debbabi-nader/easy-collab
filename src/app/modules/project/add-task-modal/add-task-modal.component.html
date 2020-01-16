@@ -26,6 +26,36 @@
                         <ion-datetime id="dueDate" formControlName="dueDate" required placeholder="Due date" displayFormat="D MMM, YYYY - HH:mm" [min]="minDueDate"></ion-datetime>
                         <p class="error-message" *ngIf="(addTaskFormGroup.get('dueDate').touched || addTaskFormGroup.get('dueDate').dirty) && addTaskFormGroup.get('dueDate').hasError('required')">* This field is required</p>
                     </div>
+                    <div class="form-group">
+                        <ion-input type="text" id="assignedTo" formControlName="assignedTo" placeholder="Assign task to..." (ionChange)="onAssignedToInputChange()"></ion-input>
+                    </div>
+                    <div *ngIf="addTaskFormGroup.get('assignedTo').value.trim() !== ''" class="task-team-suggestions-container">
+                        <div *ngFor="let suggestion of suggestedTaskTeam; let i = index;" class="task-team-suggestion ion-activatable" (click)="onSuggestionSelection(i)">
+                            <div class="task-team-suggestion-avatar-container">
+                                <ion-avatar>
+                                    <img src="assets/imgs/profile-picture.jpg">
+                                </ion-avatar>
+                            </div>
+                            <div class="task-team-suggestion-information-container">
+                                <div class="suggestion-fullname">{{ suggestion.firstName + ' ' + suggestion.lastName }}</div>
+                                <div class="suggestion-email">{{ suggestion.email }}</div>
+                            </div>
+                            <ion-ripple-effect></ion-ripple-effect>
+                        </div>
+                        <div *ngIf="!suggestedTaskTeam || suggestedTaskTeam.length <= 0" class="no-data-container">
+                            <img src="assets/imgs/no-data.png">
+                            <p>No matches found</p>
+                        </div>
+                    </div>
+                    <div *ngIf="addTaskFormGroup.get('assignedTo').value.trim() === ''" class="task-team-container">
+                        <ion-chip *ngFor="let collaborator of taskTeam; let i = index;" color="primary">
+                            <ion-avatar>
+                                <img src="assets/imgs/profile-picture.jpg">
+                            </ion-avatar>
+                            <ion-label>{{ collaborator.firstName + ' ' + collaborator.lastName }}</ion-label>
+                            <ion-icon name="close-circle" (click)="onSuggestionRemoval(i)"></ion-icon>
+                        </ion-chip>
+                    </div>
                 </form>
             </div>
             <div class="modal-card-actions">
