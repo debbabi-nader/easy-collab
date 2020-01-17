@@ -24,6 +24,8 @@ import { AppComponent } from './app.component';
 
 import { FIREBASE_CONFIG } from './constants/firebase-config.constant';
 
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 @NgModule({
     declarations: [
@@ -44,6 +46,7 @@ import { FIREBASE_CONFIG } from './constants/firebase-config.constant';
     providers: [
         StatusBar,
         SplashScreen,
+        LocalNotifications,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         AuthenticationService,
         UsersService,
