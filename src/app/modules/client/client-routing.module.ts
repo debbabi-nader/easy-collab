@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ClientComponent } from './client.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CollaborationProposalComponent } from './collaboration-proposal/collaboration-proposal.component';
+//import { CollaborationProposalComponent } from './collaboration-proposal/collaboration-proposal.component';
 
 
 const CLIENT_ROUTES: Routes = [
@@ -14,10 +14,6 @@ const CLIENT_ROUTES: Routes = [
             {
                 path: 'dashboard',
                 component: DashboardComponent
-            },
-            {
-                path: 'collaboration-proposal',
-                component: CollaborationProposalComponent
             },
             {
                 path: 'projects',
