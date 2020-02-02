@@ -1,0 +1,39 @@
+<div class="chat-modal">
+    <div class="chat-modal-header">
+        <ion-button class="modal-close-button" (click)="closeModal()">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <div class="chat-modal-header-content-container">
+            <div class="avatar-container">
+                <ion-avatar>
+                    <img [src]="(conversation.partiesIds && conversation.partiesIds.length > 2) ? 'assets/imgs/conversation-group-avatar.png': 'assets/imgs/profile-picture.jpg'">
+                </ion-avatar>
+            </div>
+            <div class="conversation-information-container">
+                <div class="conversation-name">{{ conversation.name }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-modal-body">
+        <div 
+            *ngFor="let message of messages" 
+            [ngClass]="message.senderId === currentUser.id ? 'message-container sent' : 'message-container received'"
+        >
+            <div class="message">{{ message.content }}</div>
+        </div>
+    </div>
+    <div class="chat-modal-actions">
+        <div class="form-container">
+            <form [formGroup]="sendMessageFormGroup">
+                <div class="form-group">
+                    <ion-textarea type="text" rows="1" id="message" formControlName="message" required placeholder="Your message..."></ion-textarea>
+                </div>
+            </form>
+        </div>
+        <div class="send-button-container">
+            <ion-button fill="clear" shape="round" (click)="onSendMessage()">
+                <ion-icon slot="icon-only" name="send"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,10 @@ const CLIENT_ROUTES: Routes = [
                 loadChildren: () => import('../project/project.module').then(m => m.ProjectModule)
             },
             {
+                path: 'chat',
+                loadChildren: () => import('../chat/chat.module').then(m => m.ChatModule)
+            },
+            {
                 path: '**',
                 redirectTo: 'dashboard',
                 pathMatch: 'full'

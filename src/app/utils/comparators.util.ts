@@ -18,3 +18,15 @@ export function compareUsersByFullNames(firstUser: User, secondUser: User): numb
     }
 
 }
+
+export function compareStrings(str1: string, str2: string): number {
+
+    if (str1.toLowerCase() < str2.toLowerCase()) {
+        return -1;
+    } else if (str1.toLowerCase() > str2.toLowerCase()) {
+        return 1;
+    } else {
+        return 0;
+    }
+
+}

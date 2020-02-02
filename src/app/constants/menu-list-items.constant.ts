@@ -13,9 +13,9 @@ export const CLIENT_MAIN_MENU_LIST_ITEMS: MenuListItem[] = [
         path: '/app/client/projects'
     },
     {
-        label: 'Collaboration proposals',
-        icon: 'people',
-        path: '/app/client/collaboration-proposals'
+        label: 'Messages',
+        icon: 'mail',
+        path: '/app/client/chat'
     }
 ];
 
@@ -31,9 +31,9 @@ export const PROJECT_MANAGER_MAIN_MENU_LIST_ITEMS: MenuListItem[] = [
         path: '/app/project-manager/projects'
     },
     {
-        label: 'Collaboration proposals',
-        icon: 'people',
-        path: '/app/project-manager/collaboration-proposals'
+        label: 'Messages',
+        icon: 'mail',
+        path: '/app/project-manager/chat'
     }
 ];
 
@@ -49,8 +49,8 @@ export const DEVELOPER_MAIN_MENU_LIST_ITEMS: MenuListItem[] = [
         path: '/app/developer/projects'
     },
     {
-        label: 'Collaboration proposals',
-        icon: 'people',
-        path: '/app/developer/collaboration-proposals'
+        label: 'Messages',
+        icon: 'mail',
+        path: '/app/developer/chat'
     }
 ];

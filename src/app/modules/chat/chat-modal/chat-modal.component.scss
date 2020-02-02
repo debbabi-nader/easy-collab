@@ -1,0 +1,176 @@
+.form-group {
+    width: 100%;
+    margin-bottom: 0px;
+
+    ion-textarea {
+        --color: var(--ion-text-color);
+        border: 1px solid var(--ion-color-light);
+        border-radius: 24px;
+        box-sizing: border-box;
+        margin: 0px;
+        --padding-top: 10px;
+        --padding-bottom: 10px;
+        --padding-start: 14px;
+        --padding-end: 14px;
+    }
+}
+
+.chat-modal {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: stretch;
+
+    .chat-modal-header,
+    .chat-modal-body,
+    .chat-modal-actions {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .chat-modal-header {
+        position: relative;
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        padding: 24px;
+        background: url(../../../../assets/imgs/collaboration-cropped-blured-gradient-background-image.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: var(--ion-background-color);
+    
+        .modal-close-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            height: 30px;
+            width: 30px;
+            margin: 0;
+            --padding-bottom: 0px;
+            --padding-top: 0px;
+            --padding-start: 0px;
+            --padding-end: 0px;
+            --color: var(--ion-background-color);
+            --background: transparent;
+            --box-shadow: none;
+    
+            ion-icon {
+                font-size: 30px;
+            }
+        }
+
+        .chat-modal-header-content-container {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            align-content: flex-start;
+            justify-content: stretch;
+            box-sizing: border-box;
+
+            .avatar-container {
+                width: 80px;
+                min-width: 80px;
+                height: 80px;
+                padding: 10px;
+                box-sizing: border-box;
+                margin-right: 18px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+    
+                ion-avatar {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid var(--ion-color-primary-contrast);
+                }
+            }
+
+            .conversation-information-container {
+                min-width: 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                
+                .conversation-name {
+                    width: 100%;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: var(--ion-color-primary-contrast);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+
+    .chat-modal-body {
+        flex: 1;
+        padding: 0px 24px;
+        overflow-y: scroll;
+        
+        .message-container {
+            width: 100%;
+            margin: 8px 0px;
+            display: flex;
+            flex-direction: row;
+
+            .message {
+                max-width: 60%;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: 24px;
+                box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
+            }
+        }
+
+        .sent {
+            justify-content: flex-end;
+
+            .message {
+                text-align: right;
+                color: var(--ion-background-color);
+                background: linear-gradient(45deg, rgba(1,241,254,1) 0%, rgba(79,172,254,1) 55%);
+            }
+        }
+
+        .received {
+            justify-content: flex-start;
+
+            .message {
+                background: var(--ion-background-color);
+            }
+        }
+    }
+
+    .chat-modal-actions {
+        padding: 12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        border-top: 0.5px solid var(--ion-color-light);
+
+        .form-container {
+            flex: 1;
+        }
+
+        .send-button-container {
+            margin-left: 12px;
+
+            ion-button {
+                margin: 0;
+                height: 40px;
+                --box-shadow: none;
+                --padding-end: 8px;
+                --padding-start: 8px;
+            }
+        }
+    }
+}

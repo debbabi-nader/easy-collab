@@ -1,0 +1,194 @@
+ion-card {
+    padding: 24px;
+    margin: 0;
+    border-radius: 24px;
+    box-shadow: none;
+    background: var(--ion-background-color);
+    box-sizing: border-box;
+}
+
+ion-button {
+    margin: 0;
+    --box-shadow: none;
+    height: 44px;
+}
+
+.primary-gradient-button {
+    --border-width: 0px;
+    --color: var(--ion-background-color);
+    --background: linear-gradient(45deg, rgba(1,241,254,1) 0%, rgba(79,172,254,1) 55%);
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 14px;
+
+    ion-input {
+        --color: var(--ion-text-color);
+        border: 2px solid var(--ion-color-primary);
+        border-radius: 64px;
+        box-sizing: border-box;
+        margin: 0px;
+        --padding-top: 10px;
+        --padding-bottom: 10px;
+        --padding-start: 14px;
+        --padding-end: 14px;
+    }
+
+    .error-message {
+        color: var(--ion-color-danger);
+        margin: 14px 0px;
+        padding: 0px 16px;
+    }
+}
+
+.modal {
+    height: 100%;
+    background: url(../../../../assets/imgs/collaboration-cropped-gradient-background-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .modal-header,
+    .modal-body {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal-header {
+        position: relative;
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        padding: 24px 24px 12px 24px;
+        color: var(--ion-background-color);
+    
+        .modal-close-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            height: 30px;
+            width: 30px;
+            margin: 0;
+            --padding-bottom: 0px;
+            --padding-top: 0px;
+            --padding-start: 0px;
+            --padding-end: 0px;
+            --color: var(--ion-background-color);
+            --background: transparent;
+            --box-shadow: none;
+    
+            ion-icon {
+                font-size: 30px;
+            }
+        }
+    
+        .modal-title {
+            font-size: 26px;
+            font-weight: bold;
+        }
+    }
+
+    .modal-body {
+        height: calc(100% - 140px);
+        padding: 12px 24px 24px 24px;
+
+        .modal-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+
+            .modal-card-content {
+                flex: 1;
+                overflow-y: scroll;
+            }
+
+            .modal-card-actions {
+                padding-top: 24px;
+            }
+        }
+    }
+}
+
+.no-data-container {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    img {
+        width: 48px;
+        height: auto;
+    }
+
+    p {
+        margin: 12px 0px 0px 0px;
+    }
+}
+
+.conversation-parties-suggestions-container {
+    width: 100%;
+    padding: 0px 14px;
+    box-sizing: border-box;
+
+    .conversation-party-suggestion {
+        width: 100%;
+        height: 72px;
+        position: relative;
+        padding: 12px;
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        justify-content: stretch;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .conversation-party-suggestion-avatar-container {
+            width: 48px;
+            min-width: 48px;
+            height: 48px;
+            margin-right: 24px;
+
+            ion-avatar {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .conversation-party-suggestion-information-container {
+            min-width: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            .suggestion-project-team,
+            .suggestion-fullname,
+            .suggestion-email {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .suggestion-project-team,
+            .suggestion-fullname {
+                font-size: 16px;
+                color: var(--ion-text-color);
+            }
+        }
+    }
+
+    .conversation-party-suggestion+.conversation-party-suggestion {
+        border-top: 1px solid var(--ion-color-light);
+    }
+}

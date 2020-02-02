@@ -13,6 +13,12 @@ export class UsersService {
         private angularFirestore: AngularFirestore
     ) {}
 
+    getUsers(): Observable<User[]> {
+
+        return this.angularFirestore.collection<User>('/users').valueChanges();
+
+    }
+
     getUserById(id: string): Observable<User> {
 
         return this.angularFirestore.doc<User>('/users/' + id).valueChanges();

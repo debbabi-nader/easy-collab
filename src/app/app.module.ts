@@ -19,6 +19,8 @@ import { UsersService } from './services/users.service';
 import { ProjectsService } from './services/projects.service';
 import { TasksService } from './services/tasks.service';
 import { CollaborationsService } from './services/collaborations.service';
+import { ConversationsService } from './services/conversations.service';
+import { MessagesService } from './services/messages.service';
 
 import { AppComponent } from './app.component';
 
@@ -49,7 +51,9 @@ import { FIREBASE_CONFIG } from './constants/firebase-config.constant';
         UsersService,
         ProjectsService,
         TasksService,
-        CollaborationsService
+        CollaborationsService,
+        ConversationsService,
+        MessagesService
     ],
     bootstrap: [
         AppComponent

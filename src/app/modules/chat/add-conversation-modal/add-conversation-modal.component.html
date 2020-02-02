@@ -1,0 +1,56 @@
+<div class="modal">
+    <div class="modal-header">
+        <ion-button class="modal-close-button" (click)="closeModal()">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <div class="modal-title">Start a new conversation</div>
+    </div>
+    <div class="modal-body">
+        <ion-card class="modal-card">
+            <div class="modal-card-content">
+                <form [formGroup]="addConversationFormGroup">
+                    <div class="form-group" *ngIf="selectedConversationParties && selectedConversationParties.length > 1">
+                        <ion-input type="text" id="name" formControlName="name" required placeholder="Conversation name"></ion-input>
+                        <p class="error-message" *ngIf="(addConversationFormGroup.get('name').touched || addConversationFormGroup.get('name').dirty) && addConversationFormGroup.get('name').hasError('required')">* This field is required</p>
+                    </div>
+                    <div class="form-group">
+                        <ion-input type="text" id="conversationParties" formControlName="conversationParties" placeholder="Conversation parties..." (ionChange)="onConversationPartiesInputChange()"></ion-input>
+                        <p class="error-message" *ngIf="(addConversationFormGroup.get('conversationParties').touched || addConversationFormGroup.get('conversationParties').dirty) && addConversationFormGroup.get('conversationParties').hasError('required')">* You need to select at least one party to communicate with</p>
+                    </div>
+                    <div *ngIf="addConversationFormGroup.get('conversationParties').value.trim() !== ''" class="conversation-parties-suggestions-container">
+                        <div *ngFor="let suggestion of suggestedConversationParties; let i = index;" class="conversation-party-suggestion ion-activatable" (click)="onConversationPartySuggestionSelection(i)">
+                            <div class="conversation-party-suggestion-avatar-container">
+                                <ion-avatar>
+                                    <img *ngIf="suggestion.suggestionType === 'PROJECT_TEAM'" src="assets/imgs/project-team-avatar.png">
+                                    <img *ngIf="suggestion.suggestionType === 'USER'"src="assets/imgs/profile-picture.jpg">
+                                </ion-avatar>
+                            </div>
+                            <div class="conversation-party-suggestion-information-container">
+                                <div class="suggestion-project-team" *ngIf="suggestion.suggestionType === 'PROJECT_TEAM'">{{ suggestion.suggestion.label + ' team' }}</div>
+                                <div class="suggestion-fullname" *ngIf="suggestion.suggestionType === 'USER'">{{ suggestion.suggestion.firstName + ' ' + suggestion.suggestion.lastName }}</div>
+                                <div class="suggestion-email" *ngIf="suggestion.suggestionType === 'USER'">{{ suggestion.suggestion.email }}</div>
+                            </div>
+                            <ion-ripple-effect></ion-ripple-effect>
+                        </div>
+                        <div *ngIf="!suggestedConversationParties || suggestedConversationParties.length <= 0" class="no-data-container">
+                            <img src="assets/imgs/no-data.png">
+                            <p>No matches found</p>
+                        </div>
+                    </div>
+                    <div *ngIf="addConversationFormGroup.get('conversationParties').value.trim() === ''" class="selected-conversation-parties-container">
+                        <ion-chip *ngFor="let selectedConversationParty of selectedConversationParties; let i = index;" color="primary">
+                            <ion-avatar>
+                                <img src="assets/imgs/profile-picture.jpg">
+                            </ion-avatar>
+                            <ion-label>{{ selectedConversationParty.firstName + ' ' + selectedConversationParty.lastName }}</ion-label>
+                            <ion-icon name="close-circle" (click)="onSelectedConversationPartyRemoval(i)"></ion-icon>
+                        </ion-chip>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-card-actions">
+                <ion-button expand="block" shape="round" strong="true" class="primary-gradient-button" (click)="onAddConversation()" [disabled]="addConversationFormGroup.invalid">Create new conversation</ion-button>
+            </div>
+        </ion-card>
+    </div>
+</div>

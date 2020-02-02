@@ -1,0 +1,22 @@
+<div class="conversations-container">
+    <div class="conversation-container ion-activatable" *ngFor="let conversation of conversations; let i = index;" (click)="openChatModal(i)">
+        <div class="conversation-content-container">
+            <div class="conversation-avatar-container">
+                <ion-avatar>
+                    <img [src]="(conversation.partiesIds && conversation.partiesIds.length > 2) ? 'assets/imgs/conversation-group-avatar.png' : 'assets/imgs/profile-picture.jpg'">
+                </ion-avatar>
+            </div>
+            <div class="conversation-information-container">
+                <div class="conversation-name">{{ conversation.name }}</div>
+                <div class="conversation-last-message" *ngIf="conversation.lastMessage">{{ conversation.lastMessage.content }}</div>
+            </div>
+        </div>
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="divider"></div>
+    </div>
+</div>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="primary-gradient-button" (click)="openAddConversationModal()">
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
